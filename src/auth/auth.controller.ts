@@ -20,7 +20,8 @@ export class AuthController {
     const user = await this.authService.login(body);
     session.userData = {
       id: user.id,
-      role: user.role
+      role: user.role,
+      status: user.status,
     }
     return user;
   }

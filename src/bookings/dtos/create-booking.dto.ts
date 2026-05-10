@@ -1,5 +1,4 @@
-import { BookingStatus } from "../enums/bookingStatus.enum";
-import { IsDateString, IsEnum, IsNumber, IsString, Min } from "class-validator";
+import { IsDateString, IsNumber, IsString, Min } from "class-validator";
 
 export class CreateBookingDto {
   @IsString()
@@ -17,9 +16,6 @@ export class CreateBookingDto {
   @IsDateString()
   endTime: Date;
 
-  @IsEnum(BookingStatus)
-  status: BookingStatus;
-
   @IsNumber()
   @Min(1)
   resourceId: number;
@@ -27,9 +23,5 @@ export class CreateBookingDto {
   @IsNumber()
   @Min(1)
   organizerId: number;
-
-  @IsNumber()
-  @Min(1)
-  approvedById: number;
 
 }

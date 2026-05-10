@@ -25,12 +25,34 @@ export class BookingDto {
   @Expose()
   status: BookingStatus;
 
+  @Transform(({ obj }) => {
+    return {
+      id: obj.resource.id,
+      name: obj.resource.name,
+    }
+  })
   @Expose()
   resource: Resource;
 
+  @Transform(({ obj }) => {
+    return {
+      id: obj.organizer.id,
+      name: obj.organizer.name,
+      email: obj.organizer.email,
+    }
+  })
   @Expose()
   organizer: User;
 
+  @Transform(({ obj }) => {
+    if (obj.approvedBy) {
+      return {
+        id: obj.approvedBy.id,
+        name: obj.approvedBy.name,
+        email: obj.approvedBy.email,
+      }
+    }
+  })
   @Expose()
   approvedBy: User;
 
