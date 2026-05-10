@@ -1,6 +1,7 @@
 import { Expose, Transform, } from "class-transformer";
 import { Category } from "../category.entity";
 import { User } from "src/users/users.entity";
+import { Bookings } from "src/bookings/booking.entity";
 
 export class ResourceDto {
   @Expose()
@@ -34,6 +35,9 @@ export class ResourceDto {
   })
   @Expose()
   admins: User[];
+
+  @Expose()
+  booking: Bookings;
 
   @Transform(({ obj }) => {
     if (obj.category) {

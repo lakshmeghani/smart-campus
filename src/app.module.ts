@@ -7,6 +7,7 @@ import { APP_PIPE } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ResourcesModule } from './resources/resources.module';
+import { BookingsModule } from './bookings/bookings.module';
 const cookieSession = require('cookie-session')
 
 @Module({
@@ -29,6 +30,7 @@ const cookieSession = require('cookie-session')
     UsersModule,
     AuthModule,
     ResourcesModule,
+    BookingsModule,
   ],
   controllers: [AppController],
   providers: [

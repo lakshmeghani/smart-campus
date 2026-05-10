@@ -19,7 +19,7 @@ export class User {
   @Column()
   role: Role
 
-  @Column({ default: "pending" })
+  @Column({ default: UserStatus.PENDING })
   status: UserStatus
 
   @CreateDateColumn({ 

@@ -36,6 +36,14 @@ export class ResourcesService {
     return resources;
   }
 
+  async findResourceById(id: number) {
+    const resource = await this.repo.findOneOrFail({
+      where: { id },
+      relations: { category: true },
+    })
+    return resource;
+  }
+
   async findResourcesByCategory(id: number) {
     const resources = await this.repo.find({
       where: { category: { id } },

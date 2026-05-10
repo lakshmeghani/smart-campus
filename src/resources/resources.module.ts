@@ -11,6 +11,7 @@ import { UsersModule } from 'src/users/users.module';
 @Module({
   imports: [TypeOrmModule.forFeature([Category, Resource]), UsersModule],
   controllers: [ResourcesController, CategoryController,],
-  providers: [ResourcesService, CategoryService,]
+  providers: [ResourcesService, CategoryService,],
+  exports: [ResourcesService],
 })
 export class ResourcesModule {}

@@ -1,6 +1,7 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./category.entity";
 import { User } from "src/users/users.entity";
+import { Bookings } from "src/bookings/booking.entity";
 
 @Entity()
 export class Resource {
@@ -25,6 +26,9 @@ export class Resource {
   @ManyToMany(() => User)
   @JoinTable()
   admins: User[];
+
+  @OneToMany(() => Bookings, (booking) => booking.resource)
+  booking: Bookings;
 
   @ManyToOne(
     () => Category, 
